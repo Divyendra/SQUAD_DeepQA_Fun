@@ -1,6 +1,7 @@
 #Project static files
 preprocessing/data/glove.6B/glove.6B.50d.txt
 preprocessing/data/squad/*
+!preprocessing/data/squad/dummy_file
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
