@@ -11,15 +11,17 @@ def get_answer_txt(start, end, contxt):
 	c_words = contxt.split()
 	return " ".join(c_words[start:end])
 
-def f1_score(prediction, ground_truth):
+def count_tokens(prediction, ground_truth):
     prediction_tokens = normalize_answer(prediction).split()
     ground_truth_tokens = normalize_answer(ground_truth).split()
     common = Counter(prediction_tokens) & Counter(ground_truth_tokens)
     num_same = sum(common.values())
-    if num_same == 0:
-        return 0
-    precision = 1.0 * num_same / len(prediction_tokens)
-    recall = 1.0 * num_same / len(ground_truth_tokens)
+    return num_same, len(prediction_tokens), len(ground_truth_tokens)
+
+def f1_score(common_len, pred_len, grnd_len):
+    if common_len == 0: return common_len
+    precision = 1.0 * common_len / pred_len
+    recall = 1.0 * common_len / grnd_len
     f1 = (2 * precision * recall) / (precision + recall)
     return f1
 
