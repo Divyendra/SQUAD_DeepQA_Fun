@@ -1,0 +1,2 @@
+model_checkpoint_path: "QA_RNN"
+all_model_checkpoint_paths: "QA_RNN"

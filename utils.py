@@ -5,11 +5,11 @@ from collections import Counter
 def get_answer_txt(start, end, contxt):
 	'''
 	start: start index int
-	end: end index int
+	end: end index int ##Note: 'end' is inclusive
 	contxt: context sentence
 	'''
 	c_words = contxt.split()
-	return " ".join(c_words[start:end])
+	return " ".join(c_words[start:end+1])
 
 def count_tokens(prediction, ground_truth):
     prediction_tokens = normalize_answer(prediction).split()
